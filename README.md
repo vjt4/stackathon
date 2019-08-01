@@ -8,6 +8,8 @@ We need [Node.js](https://nodejs.org) to install and run scripts.
 
 ## Install and run
 
+`npm install webpack webpack-cli -g`
+
 Run next commands in your terminal:
 
 | Command | Description |
