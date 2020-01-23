@@ -1,17 +1,16 @@
-import 'phaser';
+import phaser from 'phaser';
+import Scene1 from './scenes/Scene1'
+import Scene2 from './scenes/Scene2'
 
-var config = {
-    type: Phaser.AUTO,
+export let config = {
+    type: phaser.AUTO,
     parent: 'phaser-example',
-    width: 800,
-    height: 600,
-    scene: {
-        preload: preload,
-        create: create
-    }
+    width: 1920,
+    height: 1080,
+    scene: [Scene1, Scene2]
 };
 
-var game = new Phaser.Game(config);
+var game = new phaser.Game(config);
 
 function preload ()
 {
