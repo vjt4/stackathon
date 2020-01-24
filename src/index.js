@@ -5,8 +5,8 @@ import Scene2 from './scenes/Scene2'
 export let config = {
   type: phaser.AUTO,
   parent: 'phaser-example',
-  width: 800,
-  height: 800,
+  width: 960,
+  height: 960,
 	scene: [Scene1, Scene2],
 	pixelArt: true,
 	physics: {

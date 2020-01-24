@@ -8,8 +8,10 @@ export default class Scene1 extends Scene {
 		this.load.image('mario', "../../assets/level/mario.png");
 		this.load.image('kunai', "../../assets/Kunai.png");
 		this.load.image('tile3', "../../assets/level/castle_tileset_part3.png")
+		this.load.image('tile1', "../../assets/level/castle_tileset_part1.png")
+
 		
-		this.load.tilemapTiledJSON("map", '../../assets/level/sample.json')
+		this.load.tilemapTiledJSON("map", '../../assets/level/desert.json')
 
 			
 		this.load.atlas('ninja', "../../assets/spritesheets/ninja.png", "../../assets/spritesheets/ninja.json")
