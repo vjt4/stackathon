@@ -1,3 +1,5 @@
 export  const gameSettings = {
-	playerSpeed: 200
+	playerSpeed: 3,
+	playerStop: 0,
+	playerJump: 4
 }

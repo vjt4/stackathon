@@ -6,22 +6,13 @@ export default class Scene1 extends Scene {
 	}
 	preload() {
 		this.load.image('mario', "../../assets/level/mario.png");
-		this.load.image('kunai', "../../assets/ninjaSprites/Kunai.png");
+		this.load.image('kunai', "../../assets/Kunai.png");
+		this.load.image('tile3', "../../assets/level/castle_tileset_part3.png")
+		
+		this.load.tilemapTiledJSON("map", '../../assets/level/sample.json')
+
 			
-		this.load.spritesheet('ninjaRun', "../../assets/spriteSheets/ninjaRun.png", {
-			frameWidth: 364,
-			frameHeight: 458
-		})
-
-		this.load.spritesheet('ninjaIdle', "../../assets/spriteSheets/ninjaIdle.png", {
-			frameWidth: 235,
-			frameHeight: 439
-		})
-
-		this.load.spritesheet('ship', "../../assets/spritesheets/ship.png", {
-			frameWidth: 16,
-			frameHeight: 16
-		})
+		this.load.atlas('ninja', "../../assets/spritesheets/ninja.png", "../../assets/spritesheets/ninja.json")
 	
 	}
 
@@ -30,25 +21,40 @@ export default class Scene1 extends Scene {
 		this.scene.start('playGame')
 
 		this.anims.create({
-			key: 'ship_anim',
-			frames: this.anims.generateFrameNumbers('ship'),
-			frameRate: 20,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: 'run_anim',
-			frames: this.anims.generateFrameNumbers('ninjaRun'),
-			frameRate: 20,
-			repeat: -1
-		})
-
-		this.anims.create({
-			key: 'idle_anim',
-			frames: this.anims.generateFrameNumbers('ninjaIdle'),
-			frameRate: 10,
+			key: 'idle',
+			frames: this.anims.generateFrameNames('ninja', {
+				start: 0,
+				end: 9,
+				zeroPad: 0,
+				prefix: 'idle__',
+				suffix: '.png'
+			}),
+			frameRate: 8,
 			repeat: -1
 		})
-
+		this.anims.create({
+			key: 'run',
+			frames: this.anims.generateFrameNames('ninja', {
+				start: 0,
+				end: 9,
+				zeroPad: 1,
+				prefix: 'run__',
+				suffix: '.png'
+			}),
+			frameRate: 8,
+			repeat: -1
+		})
+		this.anims.create({
+			key: 'jump',
+			frames: this.anims.generateFrameNames('ninja', {
+				start: 0,
+				end: 9,
+				zeroPad: 1,
+				prefix: 'jump__',
+				suffix: '.png'
+			}),
+			frameRate: 8,
+			repeat: -1
+		})
 	}
 }

@@ -5,13 +5,14 @@ import Scene2 from './scenes/Scene2'
 export let config = {
   type: phaser.AUTO,
   parent: 'phaser-example',
-  width: 1920,
-  height: 1080,
+  width: 800,
+  height: 800,
 	scene: [Scene1, Scene2],
 	pixelArt: true,
 	physics: {
 		default: 'arcade',
 		arcade: {
+			gravity: {y: 10},
 			debug: false
 		}
 	}
