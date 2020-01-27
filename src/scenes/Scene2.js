@@ -11,7 +11,7 @@ export default class Scene2 extends Scene {
     const tileset1 = map.addTilesetImage("castle_tileset_part1", "tile1");
 
     const tileset3 = map.addTilesetImage("castle_tileset_part3", "tile3");
-    let jumpTimer = 0;
+    this.shootTime = 0;
 
     const belowLayer = map.createStaticLayer("Tile Layer 2", tileset1, 0, 0);
     const worldLayer = map.createStaticLayer("Tile Layer 1", tileset3, 0, 0);
@@ -163,7 +163,7 @@ export default class Scene2 extends Scene {
 
   attackPlayerManager(obj) {
     if (this.shift.isDown && obj.body.onFloor()) {
-      obj.play("attack", true);
+      obj.play("throw", true);
       this.throwKunai(obj);
     } else if (this.shift.isDown) {
       obj.play("jump_attack", true);
@@ -172,7 +172,7 @@ export default class Scene2 extends Scene {
   }
   attackPlayerManager1(obj) {
     if (this.spaceBar.isDown && obj.body.onFloor()) {
-      obj.play("attack", true);
+      obj.play("throw", true);
       this.throwKunai(obj);
     } else if (this.spaceBar.isDown) {
       obj.play("jump_attack", true);
@@ -180,17 +180,19 @@ export default class Scene2 extends Scene {
     }
   }
   throwKunai(obj) {
-    // if (this.game.getTime.now > nextFireTime) {
-    //   nextFireTime = gameTime.now + fireRate;
-    let thrown = this.physics.add.sprite(obj.x, obj.y, "kunai");
+    if (this.time.now > this.shootTime) {
+      let thrown = this.physics.add.sprite(obj.x, obj.y, "kunai");
+      thrown.setScale(0.25);
+      thrown.body.rotation = 1000;
 
-    thrown.setScale(0.25);
-    thrown.body.rotation = 1000;
-    if (obj.flipX) {
-      thrown.body.velocity.x = -1000;
-    } else {
-      thrown.body.velocity.x = 1000;
+      if (obj.flipX) {
+        thrown.body.velocity.x = -1000;
+      } else {
+        thrown.body.velocity.x = 1000;
+      }
+      this.shootTime = this.time.now + 250;
     }
+
     //}
   }
 }

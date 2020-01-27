@@ -68,8 +68,8 @@ export default class Scene1 extends Scene {
         prefix: "throw__",
         suffix: ".png"
       }),
-      frameRate: 8,
-      repeat: -1
+      frameRate: 36,
+      repeat: 0
     });
     this.anims.create({
       key: "attack",
