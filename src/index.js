@@ -1,42 +1,38 @@
-import phaser from 'phaser';
-import Scene1 from './scenes/Scene1'
-import Scene2 from './scenes/Scene2'
+import phaser from "phaser";
+import Scene1 from "./scenes/Scene1";
+import Scene2 from "./scenes/Scene2";
 
 export let config = {
   type: phaser.AUTO,
-  parent: 'phaser-example',
-  width: 960,
-  height: 960,
-	scene: [Scene1, Scene2],
-	pixelArt: true,
-	physics: {
-		default: 'arcade',
-		arcade: {
-			gravity: {y: 250},
-			debug: false
-		}
-	}
-
+  parent: "phaser-example",
+  width: 1280,
+  height: 1280,
+  scene: [Scene1, Scene2],
+  pixelArt: true,
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 250 },
+      debug: false
+    }
+  }
 };
 
 var game = new phaser.Game(config);
 
-function preload ()
-{
-    this.load.image('logo', 'assets/logo.png');
+function preload() {
+  this.load.image("logo", "assets/logo.png");
 }
 
-function create ()
-{
-    var logo = this.add.image(400, 150, 'logo');
+function create() {
+  var logo = this.add.image(400, 150, "logo");
 
-    this.tweens.add({
-        targets: logo,
-        y: 450,
-        duration: 2000,
-        ease: 'Power2',
-        yoyo: true,
-        loop: -1
-    });
-
+  this.tweens.add({
+    targets: logo,
+    y: 450,
+    duration: 2000,
+    ease: "Power2",
+    yoyo: true,
+    loop: -1
+  });
 }
