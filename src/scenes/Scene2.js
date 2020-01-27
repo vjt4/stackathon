@@ -33,7 +33,10 @@ export default class Scene2 extends Scene {
       config.width / 2,
       config.height / 2,
       "ninja"
-    );
+		);
+		this.ninja.shootTime = 0
+
+		this.ninja1.shootTime = 0
 
     this.physics.add.collider(this.ninja, worldLayer);
     this.physics.add.collider(this.ninja1, worldLayer);
@@ -180,7 +183,7 @@ export default class Scene2 extends Scene {
     }
   }
   throwKunai(obj) {
-    if (this.time.now > this.shootTime) {
+    if (this.time.now > obj.shootTime) {
       let thrown = this.physics.add.sprite(obj.x, obj.y, "kunai");
       thrown.setScale(0.25);
       thrown.body.rotation = 1000;
@@ -190,7 +193,7 @@ export default class Scene2 extends Scene {
       } else {
         thrown.body.velocity.x = 1000;
       }
-      this.shootTime = this.time.now + 250;
+      obj.shootTime = this.time.now + 250;
     }
 
     //}
