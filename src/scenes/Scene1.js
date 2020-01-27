@@ -43,8 +43,8 @@ export default class Scene1 extends Scene {
 				prefix: 'run__',
 				suffix: '.png'
 			}),
-			frameRate: 8,
-			repeat: -1
+			frameRate: 24,
+			repeat: 0
 		})
 		this.anims.create({
 			key: 'jump',
@@ -53,6 +53,42 @@ export default class Scene1 extends Scene {
 				end: 9,
 				zeroPad: 1,
 				prefix: 'jump__',
+				suffix: '.png'
+			}),
+			frameRate: 8,
+			repeat: 0
+		})
+		this.anims.create({
+			key: 'throw',
+			frames: this.anims.generateFrameNames('ninja', {
+				start: 0,
+				end: 9,
+				zeroPad: 1,
+				prefix: 'throw__',
+				suffix: '.png'
+			}),
+			frameRate: 8,
+			repeat: -1
+		})
+		this.anims.create({
+			key: 'attack',
+			frames: this.anims.generateFrameNames('ninja', {
+				start: 0,
+				end: 9,
+				zeroPad: 1,
+				prefix: 'attack__',
+				suffix: '.png'
+			}),
+			frameRate: 24,
+			repeat: 0
+		})
+		this.anims.create({
+			key: 'jump_attack',
+			frames: this.anims.generateFrameNames('ninja', {
+				start: 0,
+				end: 9,
+				zeroPad: 1,
+				prefix: 'jump_attack__',
 				suffix: '.png'
 			}),
 			frameRate: 8,
